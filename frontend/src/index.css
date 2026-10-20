@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink-950: #070b12;
+  --color-ink-900: #0c1219;
+  --color-ink-850: #111a24;
+  --color-ink-800: #16202c;
+  --color-ink-700: #1f2d3d;
+  --color-ink-600: #2b3d52;
+  --color-smoke-400: #8aa0b6;
+  --color-smoke-300: #a9bccd;
+  --color-ember-500: #ff6b35;
+  --color-ember-400: #ff855a;
+  --color-amber-glow: #ffb547;
+  --color-signal-good: #34d399;
+  --color-signal-warn: #fbbf24;
+  --color-signal-bad: #f87171;
+  --color-accent-cyan: #38bdf8;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink-950);
+  color: #e6edf5;
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.leaflet-container {
+  background: #0a0f16;
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0c1219;
+}
+::-webkit-scrollbar-thumb {
+  background: #26344a;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #35486a;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2px solid var(--color-ember-500);
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

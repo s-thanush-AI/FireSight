@@ -1,0 +1,52 @@
+# Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Data, models, artifacts (never commit)
+data/
+datasets/
+models/
+weights/
+*.pt
+*.onnx
+*.engine
+*.mp4
+*.avi
+*.gif
+exports/
+runs/
+outputs/
+artifacts/
+
+# Local env / secrets
+.env
+.env.local
+*.local
+
+# Database files
+*.db
+*.db-wal
+*.db-shm
+backend/*.db
+
+# Node / frontend
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.tsbuildinfo
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Logs
+logs/
+*.log

@@ -1,0 +1,56 @@
+[project]
+name = "firesight"
+version = "0.1.0"
+description = "FireSight — wildfire smoke detection and geolocation research prototype"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.9",
+    "pydantic-settings>=2.6",
+    "numpy>=1.26",
+    "pillow>=10.3",
+    "pyyaml>=6.0",
+    "httpx>=0.27",
+    "opencv-python-headless>=4.9",
+    "pyproj>=3.6",
+]
+
+[project.optional-dependencies]
+yolo = ["ultralytics>=8.3", "torch>=2.3", "torchvision>=0.18"]
+
+[project.scripts]
+firesight = "firesight.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["firesight"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.uv]
+default-groups = ["dev"]
+package = true
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.6",
+]
